@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetWorking.MainPage"
+             BackgroundImageSource="https://klike.net/uploads/posts/2022-10/1666587816_2-4.jpg">
+    <StackLayout>
+        <StackLayout Padding="10" Margin="10">
+            <Label FontSize="28" TextColor="WhiteSmoke" Text="Приветствуем вас в приложении NetWorking!"></Label>
+            <Label FontSize="24" TextColor="WhiteSmoke" Text="NetWorking - лучшее приложение о космосе. В нашем приложении Вы сможете узнать: "></Label>
+            <!--Label FontSize="24" TextColor="WhiteSmoke" Text=""></Label>-->
+            <Label FontSize="20" TextColor="WhiteSmoke" Text="1. Астрономическую картину на нужный день(период)"></Label>
+            <Label FontSize="20" TextColor="WhiteSmoke" Text="2. Получить доступ к космическим кадрам, сделанными аппаратами NASA"></Label>
+            <!--<Label FontSize="20" TextColor="WhiteSmoke" Text="3. И что-то еще, пока хз чо"></Label>-->
+        </StackLayout>
+        
+        <Button ClassId="Library" Clicked="Button_Clicked" Text="Посмотреть коллекцию космических снимков NASA/SpaceX">
+            
+        </Button>
+        <Button ClassId="Picture" Clicked="Button_Clicked" Text="Узнать астрономическую картину дня на сегодня">
+
+        </Button>
+
+    </StackLayout>
+    
+</ContentPage>

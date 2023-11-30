@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetWorking.NASALibrary"
+             BackgroundImageSource="https://alliphonewallpapers.com/images/wallpapers/640/sbcjyoe67.jpg">
+    <StackLayout>
+        <StackLayout Padding="10" Margin="10">
+            <Label Text="Космические кадры, сделанные аппаратами NASA" HorizontalTextAlignment="Center" FontSize="24" TextColor="WhiteSmoke"></Label>
+
+            <StackLayout Orientation="Horizontal" HeightRequest="75">
+                <Label Text="Если вам нужны фотографии за несколько лет, то отметьте галочку" FontSize="20" TextColor="WhiteSmoke"></Label>
+                <CheckBox x:Name="chkbx" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
+            </StackLayout>
+
+            <Label Margin="0,10,0,10" x:Name="labeltxt" Text="Укажите год, для которого хотите посмотреть фотографии: " TextColor="WhiteSmoke"></Label>
+            <Entry Text="2023" Keyboard="Numeric" x:Name="one_year" TextColor="WhiteSmoke"></Entry>
+            <Entry Text="2022" Keyboard="Numeric" x:Name="start_year" IsVisible="false" TextColor="WhiteSmoke"></Entry>
+            <Entry Text="2023" Keyboard="Numeric" x:Name="end_year" IsVisible="false" TextColor="WhiteSmoke"></Entry>
+
+            <Button Text="Посмотреть снимки" Clicked="Button_Clicked" />
+        </StackLayout>
+        <StackLayout Margin="0,0,0,15">
+            <ListView RowHeight="400" WidthRequest="350" HorizontalOptions="Center" VerticalOptions="Center" x:Name="taskList" ItemsSource="{Binding}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DarkSlateBlue" HeightRequest="1000" WidthRequest="1000">
+                                    <StackLayout BackgroundColor="Black" Padding="5" Margin="5">
+                                        <Label Text="{Binding data[0].title}" TextColor="WhiteSmoke" Margin="0" HorizontalTextAlignment="Center" FontSize="20"></Label>
+                                        <Image Source="{Binding links[0].href}" HeightRequest="300" Margin="0"></Image>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage> <!--NASA Image and Video Library-->
+
+<!-- https://images-api.nasa.gov/search?year_start=2023&media_type=video&center=KSC&nasa_id=KSC-20200527-VP-FJM001-0001-PAD_A_History -->
+
+<!--https://images-api.nasa.gov/search?year_start=2022&center=KSC&photographer=NASA/SpaceX
+
+    Пользователь вводит стартовый год (year_start) и конечный (year_end), иначе вывод только за 2023 год-->
